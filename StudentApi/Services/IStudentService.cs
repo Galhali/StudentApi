@@ -1,11 +1,11 @@
 ﻿using StudentApi.Models;
 
-namespace StudentApi.Repositories
+namespace StudentApi.Services
 {
-    public interface IStudentRepository
+    public interface IStudentService
     {
         Task<IEnumerable<Student>> GetAllStudentsAsync();
-        Task<Student?> GetStudentByIdAsync(Guid id);
+        Task<Student?> GetStudentAsync(Guid id);
         Task AddStudentAsync(Student student);
         Task DeleteStudentAsync(Guid id);
         Task UpdateStudentAsync(Student student);

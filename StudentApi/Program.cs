@@ -1,6 +1,8 @@
 
 using Microsoft.EntityFrameworkCore;
 using StudentApi.Data;
+using StudentApi.Repositories;
+using StudentApi.Services;
 
 namespace StudentApi
 {
@@ -19,6 +21,14 @@ namespace StudentApi
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            // Register repositories
+            builder.Services.AddScoped<IStudentRepository, StudentRepository>();
+            builder.Services.AddScoped<IUserRepository, UserRepository>();
+
+            // Register services
+            builder.Services.AddScoped<IStudentService, StudentService>();
+            builder.Services.AddScoped<IUserService, UserService>();
 
             var app = builder.Build();
 

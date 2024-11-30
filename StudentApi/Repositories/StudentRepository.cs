@@ -34,9 +34,9 @@ namespace StudentApi.Repositories
             return await context.Students.ToListAsync();
         }
 
-        public async Task<Student> GetStudentByIdAsync(Guid id)
+        public async Task<Student?> GetStudentByIdAsync(Guid id)
         {
-            return await context.Students.FindAsync(id) ?? new Student();
+            return await context.Students.FindAsync(id);
         }
 
         public async Task UpdateStudentAsync(Student student)
